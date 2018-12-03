@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: kubewatch
+  namespace: monitoring
+  labels:
+    app: kubewatch
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubewatch
+  template:
+    metadata:
+      annotations:
+        checksum/config-map: c269e1fd8b9a30ac115e033856113e49960092a7b0df3b57ad057df637f362c6
+      labels:
+        app: kubewatch
+    spec:
+      containers:
+      - name: kubewatch
+        image: docker.io/bitnami/kubewatch:0.0.4
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: kubewatch-config-map
+          mountPath: /opt/bitnami/kubewatch/.kubewatch.yaml
+          subPath: .kubewatch.yaml
+        resources:
+          {}
+
+      serviceAccountName: kubewatch
+      tolerations:
+        []
+
+      restartPolicy: Always
+      volumes:
+      - name: kubewatch-config-map
+        configMap:
+          name: kubewatch

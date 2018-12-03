@@ -1,0 +1,26 @@
+---
+# Source: kubewatch/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubewatch
+  namespace: monitoring  
+  labels:
+    app: kubewatch
+
+data:
+  .kubewatch.yaml: |
+    handler:
+      slack:
+        channel: CHANNEL
+        token: SLACK-BOT-TOKEN
+
+    resource:
+      deployment: true
+      pod: true
+      services: true
+      daemonset: false
+      job: false
+      persistentvolume: false      
+      replicaset: false
+      replicationcontroller: false      
