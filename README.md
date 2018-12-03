@@ -23,7 +23,7 @@
 
     git clone https://github.com/dijeesh/eks-kubewatch.git
 
- - Edit ConfigMap and update your channel / API Token details
+ - Edit ConfigMap (02_kubewatch_configmap.yaml) and update your channel / API Token details
 
     channel: YOUR-CHANNEL
     token: SLACK-BOT-TOKEN
