@@ -25,7 +25,6 @@
 
  - Edit ConfigMap and update your channel / API Token details
 
-    slack:
     channel: YOUR-CHANNEL
     token: SLACK-BOT-TOKEN
 
