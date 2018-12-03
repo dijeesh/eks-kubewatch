@@ -27,6 +27,9 @@
 
     channel: YOUR-CHANNEL
     token: SLACK-BOT-TOKEN
+    
+ - Create monitoring namespace if not exists.   
+     kubectl create namespace monitoring
 
  - Apply configurations
 
